@@ -1,0 +1,8 @@
+Que Link: https://xingxingpark.com/Leetcode-1084-Sales-Analysis-III/(This link has wrong result)
+
+Ans: 
+
+select p.product_id, p.product_name from Product p left join Sales s on p.product_id=s.product_id where s.sale_date between '2019-01-01' and '2019-03-31'
+ 
+Note:  when there is no primary key, use Group by and use aggregate functions in Having instead of using in Where
+
