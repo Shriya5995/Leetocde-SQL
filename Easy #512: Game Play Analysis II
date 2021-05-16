@@ -1,0 +1,7 @@
+Link: https://code.dennyzhang.com/game-play-analysis-ii
+
+Ans:
+
+select player_id, device_id from 
+(select player_id, device_id , ROW_NUMBER() over (PARTITION by player_id order by device_id) as row_num from activity)a
+where row_num=1
