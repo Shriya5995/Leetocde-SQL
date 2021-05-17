@@ -1,0 +1,4 @@
+select ad_id, round((case when  (clicks+VIEWS )>0 then round(clicks,2)*100/(clicks+views) else 0 end),2) ctr from
+(select ad_id, sum(case when action='Clicked' then 1 else 0 end) as clicks,
+ sum(case when action='Viewed' then 1 else 0 end) as  views
+from ads GROUP by ad_id)sample order by ad_id
