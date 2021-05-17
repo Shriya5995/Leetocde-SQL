@@ -1,0 +1,4 @@
+Ans:
+select requester_id, count(*) FROM
+(select requester_id from equest_accepted union all select accepter_id from equest_accepted)sample
+group by requester_id order by count(1) desc limit 1
