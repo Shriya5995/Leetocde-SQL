@@ -1,0 +1,2 @@
+select round((select count(*) from Delivery where order_date = customer_pref_delivery_date)*100,2)/round(count(*),2)as ImmPercntg
+from delivery
