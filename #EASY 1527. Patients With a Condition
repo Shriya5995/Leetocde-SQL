@@ -1,0 +1,1 @@
+SELECT * FROM PATIENT WHERE PATIENT_id IN (select patient_id  from patient where conditions like '%DIAB1%')
