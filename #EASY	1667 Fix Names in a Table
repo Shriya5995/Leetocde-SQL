@@ -1,0 +1,5 @@
+
+# concat- joining two string --> concat(str1,str2)
+#Substring- getting part of a string --> substring(string, index from where the string starts)
+
+SELECT USER_ID,CONCAT(UPPER(LEFT(NAME,1)),LOWER(SUBSTRING(name,2))) FROM Users order by user_id
