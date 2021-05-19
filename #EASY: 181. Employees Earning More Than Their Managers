@@ -1,0 +1,7 @@
+# e2 is employee table here since it maps the manager id to employee id of e1.
+
+So Basically which is dummy table? --> e2
+
+select  e2.Name as Employee 
+from Employee e1 join employee e2 on e1.Id=e2.ManagerId
+where e1.Salary<e2.Salary
