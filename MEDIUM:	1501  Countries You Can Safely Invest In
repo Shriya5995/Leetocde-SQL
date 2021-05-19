@@ -1,0 +1,7 @@
+with CTE as (select id,c.name from (select id, name, left (phone_number,3) as cc from person)p left join country c on
+ p.cc=c.country_code)
+select DISTINCT name from 
+(select id ,name,
+avg(case when id=caller_id then duration else 0 end)+avg(case when id=callee_id then duration else 0 end) as total_duration
+from calls left join CTE on calls.caller_id=CTE.id or calls.callee_id=CTE.id 
+group by id,name) duration where total_duration>(select avg(duration) from calls)
