@@ -1,0 +1,3 @@
+select user_id, join_date, (case when c is null then 0 else c end) from users u left join 
+(select buyer_id, count(*)  as c from orders where EXTRACT(year from order_date)='2019'
+GROUP by buyer_id)a on u.user_id=a.buyer_id
