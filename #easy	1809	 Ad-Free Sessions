@@ -1,0 +1,3 @@
+select session_id from playback WHERE session_id not in (
+select DISTINCT session_id from playback p join ads a on p.customer_id=a.customer_id 
+  where start_time<=timestamp and end_time>=timestamp)
