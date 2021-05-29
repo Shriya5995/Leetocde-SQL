@@ -1,0 +1,2 @@
+select extra, count(DISTINCT post_id) from Actions where action='report' and 
+action_date=DATEADD(day,-1,'2019-07-05') group by extra
