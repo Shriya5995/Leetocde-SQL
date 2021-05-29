@@ -1,0 +1,1 @@
+select trim(lower(product_name)),left(sale_date,7), count(sales_id) from product group by 1,2 order by 1,2
