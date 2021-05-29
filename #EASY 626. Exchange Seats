@@ -1,0 +1,6 @@
+with cte as (select s1.id,
+ (case when s1.id%2=1 and s1.id=(select max(id) as id from seat) then s1.id
+when s1.id%2=0 then s1.id-1 
+else s1.id+1 end)as new
+from seat s1)
+select cte.id, s2.student from cte left join seat s2 on cte.new=s2.id
