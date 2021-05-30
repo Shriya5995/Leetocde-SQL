@@ -1,0 +1,5 @@
+SELECT DISTINCT L1.account_iD FROM LogInfo L1 
+ LEFT JOIN 
+(SELECT account_id,login,logout,ip_address FROM LogInfo)L2 
+ON L1.account_id=L2.account_id AND L1.ip_address!=L2.ip_address
+WHERE NOT(L1.login>L2.logout OR L1.logout<L2.login)
