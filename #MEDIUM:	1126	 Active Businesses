@@ -1,0 +1,6 @@
+select business_id from 
+(select e1.business_id,e1.event_type,e1.occurences,e2.av from events e1 left JOIN
+(select event_type, avg(occurences) as av from events group by event_type)e2
+on e1.event_type=e2.event_type
+where e1.occurences>e2.av)sub group by business_id having count(1)>1
+ 
