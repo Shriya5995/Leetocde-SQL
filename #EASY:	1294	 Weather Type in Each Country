@@ -1,0 +1,5 @@
+select countries.country_name, (case when avg(weather_state)<=15 then 'cold'
+when avg(weather_state)>=25 then 'hot' else 'warm' end )as temp
+
+from Weather left join countries on Weather.country_id=countries.country_id
+where left(day,7)='2019-11' group by countries.country_name
