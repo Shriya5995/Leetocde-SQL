@@ -1,0 +1,4 @@
+select  product_name,sub.product_id,order_id, order_date from
+(select *, dense_rank() over (partition by product_id order by order_date desc) as dr from  orders)sub
+join products on sub.product_id=products.product_id
+where dr=1 order by 1,2
