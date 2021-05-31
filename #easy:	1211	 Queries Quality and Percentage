@@ -1,0 +1,5 @@
+select query_name, round(avg(quality),2) as quality, round(cast(sum(pq) as float)*100/cast(count(query_name) as float),2)
+as ct from
+(select query_name, cast(rating as float)/cast(position as float) as quality,
+case when rating<3 then 1 else 0 end as pq
+from queries)sub GROUP by query_name
