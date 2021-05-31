@@ -1,0 +1,1 @@
+select user_id, count(distinct follower_id) from followers group by user_id 
