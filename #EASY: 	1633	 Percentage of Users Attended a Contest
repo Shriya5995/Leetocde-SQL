@@ -1,0 +1,3 @@
+
+select contest_id,round(cast(count(DISTINCT user_id)as float)*100/cast((select count(*) from users) as float),2)
+from register group by contest_id order by 2 desc, contest_id
