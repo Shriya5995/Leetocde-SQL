@@ -1,0 +1,1 @@
+select actor_id, director_id from ActorDirector GROUP by actor_id, director_id having COUNT(*)>=3
