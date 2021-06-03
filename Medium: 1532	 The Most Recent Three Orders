@@ -1,0 +1,4 @@
+select name, sub.customer_id, order_id, order_date from
+(select customer_id, order_id, order_date, row_number() over (partition by customer_id order by order_date desc) 
+as all_orders from Orders) sub  left join customers on sub.customer_id=customers.customer_id where all_orders<=3
+order by name
